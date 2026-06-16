@@ -5,7 +5,7 @@ const stats = [
   { value: '2 500+', label: 'Участников', icon: '👨‍👩‍👧‍👦' },
   { value: '12', label: 'Локаций', icon: '📍' },
   { value: '751 км', label: 'Маршрут', icon: '🚗' },
-  { value: '150+', label: 'Заданий', icon: '🏆' },
+  { value: '10', label: 'Заданий', icon: '🏆' },
 ];
 
 export default function HeroSection() {

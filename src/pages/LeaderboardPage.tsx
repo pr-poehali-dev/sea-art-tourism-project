@@ -1,27 +1,32 @@
 import { useState } from 'react';
 import Layout from '@/components/Layout';
 
-const leaders = [
-  { rank: 1, name: 'Семья Петровых', city: 'Москва', points: 4250, locations: 11, achievements: 6, avatar: '👨‍👩‍👧‍👦' },
-  { rank: 2, name: 'Класс 8А, СОШ №3', city: 'Краснодар', points: 3980, locations: 10, achievements: 5, avatar: '🎓' },
-  { rank: 3, name: 'Алексей Морозов', city: 'Сочи', points: 3650, locations: 10, achievements: 5, avatar: '🧔' },
-  { rank: 4, name: 'Семья Новиковых', city: 'Ростов-на-Дону', points: 3200, locations: 9, achievements: 5, avatar: '👨‍👩‍👦‍👦' },
-  { rank: 5, name: 'Анна Соколова', city: 'Новороссийск', points: 2900, locations: 8, achievements: 4, avatar: '👩' },
-  { rank: 6, name: 'Семья Лебедевых', city: 'Анапа', points: 2700, locations: 8, achievements: 4, avatar: '👨‍👩‍👧' },
-  { rank: 7, name: 'Иван Козлов', city: 'Геленджик', points: 2500, locations: 7, achievements: 3, avatar: '👦' },
-  { rank: 8, name: 'Класс 6Б, Гимназия №1', city: 'Краснодар', points: 2300, locations: 7, achievements: 3, avatar: '🎓' },
-  { rank: 9, name: 'Семья Волковых', city: 'Туапсе', points: 2100, locations: 6, achievements: 3, avatar: '👨‍👩‍👧‍👦' },
-  { rank: 10, name: 'Мария Орлова', city: 'Сочи', points: 1950, locations: 6, achievements: 2, avatar: '👩‍💼' },
-  { rank: 47, name: 'Семья Смирновых (Вы)', city: 'Краснодар', points: 830, locations: 3, achievements: 2, avatar: '👨‍👩‍👦', isMe: true },
+const leadersPersonal = [
+  { rank: 1, name: 'Алексей Морозов', city: 'Сочи', points: 48, locations: 10, achievements: 5, avatar: '🧔' },
+  { rank: 2, name: 'Анна Соколова', city: 'Новороссийск', points: 45, locations: 9, achievements: 4, avatar: '👩' },
+  { rank: 3, name: 'Иван Козлов', city: 'Геленджик', points: 40, locations: 8, achievements: 3, avatar: '👦' },
+  { rank: 4, name: 'Мария Орлова', city: 'Сочи', points: 35, locations: 7, achievements: 2, avatar: '👩‍💼' },
+  { rank: 5, name: 'Дмитрий Попов', city: 'Туапсе', points: 30, locations: 6, achievements: 2, avatar: '🧑' },
+  { rank: 6, name: 'Елена Власова', city: 'Анапа', points: 25, locations: 5, achievements: 2, avatar: '👩‍🦱' },
+  { rank: 7, name: 'Павел Крылов', city: 'Краснодар', points: 20, locations: 4, achievements: 1, avatar: '👨' },
+];
+
+const leadersFamily = [
+  { rank: 1, name: 'Семья Петровых', city: 'Москва', points: 50, locations: 10, achievements: 6, avatar: '👨‍👩‍👧‍👦' },
+  { rank: 2, name: 'Семья Новиковых', city: 'Ростов-на-Дону', points: 45, locations: 9, achievements: 5, avatar: '👨‍👩‍👦‍👦' },
+  { rank: 3, name: 'Семья Лебедевых', city: 'Анапа', points: 40, locations: 8, achievements: 4, avatar: '👨‍👩‍👧' },
+  { rank: 4, name: 'Семья Волковых', city: 'Туапсе', points: 35, locations: 7, achievements: 3, avatar: '👨‍👩‍👧‍👦' },
+  { rank: 5, name: 'Семья Смирновых (Вы)', city: 'Краснодар', points: 15, locations: 3, achievements: 2, avatar: '👨‍👩‍👦', isMe: true },
 ];
 
 const periodOptions = ['Всё время', 'Этот месяц', 'Эта неделя'];
-const categoryOptions = ['Общий', 'Семьи', 'Школы', 'Индивидуальные'];
+const categoryOptions = ['Личный', 'Семейный'];
 
 export default function LeaderboardPage() {
   const [period, setPeriod] = useState('Всё время');
-  const [categoryFilter, setCategoryFilter] = useState('Общий');
+  const [categoryFilter, setCategoryFilter] = useState('Личный');
 
+  const leaders = categoryFilter === 'Семейный' ? leadersFamily : leadersPersonal;
   const top3 = leaders.slice(0, 3);
   const rest = leaders.filter(l => l.rank > 3);
 
@@ -185,10 +190,10 @@ export default function LeaderboardPage() {
               style={{ background: 'linear-gradient(135deg, #003B7A, #0057B7)', color: 'white' }}
             >
               <div className="font-black text-lg mb-1" style={{ fontFamily: 'Russo One, sans-serif' }}>
-                Ваш рейтинг: #47 из 2500+
+                Ваш рейтинг: #5 · 15 баллов из 50
               </div>
               <p className="font-semibold text-sm mb-4" style={{ color: 'rgba(200,235,255,0.8)' }}>
-                Наберите ещё 1120 баллов, чтобы войти в ТОП-10!
+                Выполните ещё 7 заданий, чтобы набрать максимум!
               </p>
               <a href="/map" className="btn-game inline-flex">
                 🗺️ Продолжить маршрут

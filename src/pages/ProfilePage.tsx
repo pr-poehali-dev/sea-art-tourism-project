@@ -14,29 +14,27 @@ const achievements = [
 ];
 
 const visitedLocations = [
-  { id: 1, name: 'Литературный музей Кубани', city: 'Краснодар', points: 225, date: '15 июня 2024' },
-  { id: 2, name: 'Историко-краеведческий музей', city: 'Славянск-на-Кубани', points: 235, date: '16 июня 2024' },
-  { id: 3, name: 'Дом-музей Лермонтова', city: 'Тамань', points: 370, date: '17 июня 2024' },
+  { id: 1, name: 'Литературный музей Кубани', city: 'Краснодар', points: 5, date: '15 июня 2024' },
+  { id: 2, name: 'Историко-краеведческий музей', city: 'Славянск-на-Кубани', points: 5, date: '16 июня 2024' },
+  { id: 3, name: 'Дом-музей Лермонтова', city: 'Тамань', points: 5, date: '17 июня 2024' },
 ];
 
 const taskHistory = [
-  { task: 'Посещение музея', location: 'Лит. музей Кубани', points: 100, status: 'done', date: '15.06' },
-  { task: 'Семейное фото', location: 'Лит. музей Кубани', points: 50, status: 'done', date: '15.06' },
-  { task: 'Викторина о кубанской литературе', location: 'Лит. музей Кубани', points: 75, status: 'done', date: '15.06' },
-  { task: 'Посещение музея', location: 'Историко-краев. музей', points: 100, status: 'done', date: '16.06' },
-  { task: 'Найди артефакт', location: 'Историко-краев. музей', points: 75, status: 'done', date: '16.06' },
-  { task: 'Посещение музея', location: 'Дом-музей Лермонтова', points: 120, status: 'pending', date: '—' },
+  { task: 'Фото у входа', location: 'Лит. музей Кубани', points: 5, status: 'done', date: '15.06' },
+  { task: 'Найди артефакт', location: 'Историко-краев. музей', points: 5, status: 'done', date: '16.06' },
+  { task: 'Фото с видом на море', location: 'Дом-музей Лермонтова', points: 5, status: 'done', date: '17.06' },
+  { task: 'Найди цитату', location: 'Дом-музей Островского', points: 5, status: 'pending', date: '—' },
 ];
 
-const LEVEL_THRESHOLDS = [0, 500, 1200, 2500, 5000];
+const LEVEL_THRESHOLDS = [0, 10, 20, 35, 50];
 const LEVEL_NAMES = ['Новичок', 'Путешественник', 'Исследователь', 'Знаток', 'Мастер'];
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<'overview' | 'locations' | 'tasks' | 'achievements'>('overview');
 
-  const totalPoints = 830;
+  const totalPoints = 15;
   const level = LEVEL_THRESHOLDS.findIndex((t, i) => totalPoints < (LEVEL_THRESHOLDS[i + 1] ?? Infinity));
-  const levelProgress = ((totalPoints - LEVEL_THRESHOLDS[level]) / ((LEVEL_THRESHOLDS[level + 1] ?? 5000) - LEVEL_THRESHOLDS[level])) * 100;
+  const levelProgress = ((totalPoints - LEVEL_THRESHOLDS[level]) / ((LEVEL_THRESHOLDS[level + 1] ?? 50) - LEVEL_THRESHOLDS[level])) * 100;
 
   const tabs = [
     { id: 'overview', label: 'Обзор', icon: 'LayoutDashboard' },
@@ -88,13 +86,13 @@ export default function ProfilePage() {
                   <div className="mb-2">
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-sm font-black text-white">{LEVEL_NAMES[level]}</span>
-                      <span className="text-sm font-black" style={{ color: '#7DDFFF' }}>{totalPoints} / {LEVEL_THRESHOLDS[level + 1] ?? 5000} XP</span>
+                      <span className="text-sm font-black" style={{ color: '#7DDFFF' }}>{totalPoints} / {LEVEL_THRESHOLDS[level + 1] ?? 50} баллов</span>
                     </div>
                     <div className="h-3 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.2)' }}>
                       <div className="xp-bar h-full" style={{ width: `${levelProgress}%` }} />
                     </div>
                     <div className="text-xs font-semibold mt-1" style={{ color: 'rgba(160,220,255,0.7)' }}>
-                      До уровня «{LEVEL_NAMES[level + 1]}»: {(LEVEL_THRESHOLDS[level + 1] ?? 5000) - totalPoints} XP
+                      До уровня «{LEVEL_NAMES[level + 1]}»: ещё {(LEVEL_THRESHOLDS[level + 1] ?? 50) - totalPoints} баллов
                     </div>
                   </div>
                 </div>
