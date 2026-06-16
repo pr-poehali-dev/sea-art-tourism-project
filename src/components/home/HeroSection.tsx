@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 const stats = [
   { value: '2 500+', label: 'Участников', icon: '👨‍👩‍👧‍👦' },
   { value: '12', label: 'Локаций', icon: '📍' },
-  { value: '847 км', label: 'Маршрут', icon: '🚗' },
+  { value: '751 км', label: 'Маршрут', icon: '🚗' },
   { value: '150+', label: 'Заданий', icon: '🏆' },
 ];
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
             style={{ background: 'rgba(0,153,255,0.25)', border: '1px solid rgba(0,212,255,0.4)', backdropFilter: 'blur(10px)' }}
           >
             <span>🌊</span>
-            <span style={{ color: '#7DDFFF' }}>Краснодарский край · 12 локаций · 847 км</span>
+            <span style={{ color: '#7DDFFF' }}>Краснодарский край · 12 локаций · 751 км</span>
           </div>
         </div>
 

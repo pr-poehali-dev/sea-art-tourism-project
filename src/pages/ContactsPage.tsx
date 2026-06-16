@@ -11,10 +11,10 @@ export default function ContactsPage() {
   };
 
   const contacts = [
-    { emoji: '✉️', label: 'Email', value: 'info@more-iskusstva.ru', link: 'mailto:info@more-iskusstva.ru' },
-    { emoji: '✈️', label: 'Telegram', value: '@more_iskusstva', link: 'https://t.me/more_iskusstva' },
-    { emoji: '💬', label: 'VK', value: 'vk.com/more_iskusstva', link: 'https://vk.com/more_iskusstva' },
-    { emoji: '📞', label: 'Телефон', value: '+7 (861) 000-00-00', link: 'tel:+78610000000' },
+    { emoji: '✉️', label: 'Email', value: 'more_iskusstva@bk.ru', link: 'mailto:more_iskusstva@bk.ru' },
+    { emoji: '✈️', label: 'Telegram-бот', value: '@more_iskusstva_bot', link: 'https://t.me/more_iskusstva_bot' },
+    { emoji: '💬', label: 'ВКонтакте', value: 'vk.ru/club239535650', link: 'https://vk.ru/club239535650' },
+    { emoji: '📞', label: 'Телефон', value: '+7 (918) 090-08-39', link: 'tel:+79180900839' },
   ];
 
   return (
@@ -77,8 +77,8 @@ export default function ContactsPage() {
                   <a href="https://t.me/more_iskusstva_bot" target="_blank" rel="noopener noreferrer" className="btn-game py-2.5 justify-center text-sm" style={{ background: 'linear-gradient(135deg, #29B5E8, #00D4FF)' }}>
                     ✈️ Telegram-бот @more_iskusstva_bot
                   </a>
-                  <a href="#" className="btn-game py-2.5 justify-center text-sm" style={{ background: 'linear-gradient(135deg, #0057B7, #0099FF)' }}>
-                    💬 VK-бот @more_iskusstva
+                  <a href="https://vk.ru/club239535650" target="_blank" rel="noopener noreferrer" className="btn-game py-2.5 justify-center text-sm" style={{ background: 'linear-gradient(135deg, #0057B7, #0099FF)' }}>
+                    💬 ВКонтакте сообщество
                   </a>
                 </div>
               </div>

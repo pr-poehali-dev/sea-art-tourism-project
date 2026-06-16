@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import { locations, typeColors, typeLabels, taskTypeLabels } from '@/data/locations';
 
 const TG_BOT = 'https://t.me/more_iskusstva_bot';
-const VK_BOT = 'https://vk.me/more_iskusstva';
+const VK_BOT = 'https://vk.ru/club239535650';
 
 export default function LocationPage() {
   const { id } = useParams();

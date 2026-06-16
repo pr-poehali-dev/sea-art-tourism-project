@@ -114,13 +114,13 @@ export default function ReviewsSection({ activeReview, setActiveReview }: Review
                   ✈️ Telegram-бот
                 </a>
                 <a
-                  href="https://vk.com/more_iskusstva_bot"
+                  href="https://vk.ru/club239535650"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-game"
                   style={{ background: 'linear-gradient(135deg, #0057B7, #0099FF)' }}
                 >
-                  💬 VK-бот
+                  💬 ВКонтакте
                 </a>
               </div>
             </div>
