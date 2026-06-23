@@ -5,10 +5,38 @@ import Layout from '@/components/Layout';
 import { locations, typeColors, typeLabels } from '@/data/locations';
 
 const rosneftStations = [
-  { id: 'r1', name: 'АЗС Роснефть', address: 'Краснодар, ул. Ставропольская, 222', services: ['☕ Кафе', '🅿️ Парковка', '📶 Wi-Fi', '🚻 Санузел'] },
-  { id: 'r2', name: 'АЗС Роснефть', address: 'Новороссийск, ш. Анапское, 1', services: ['☕ Кафе', '🅿️ Парковка', '🚻 Санузел'] },
-  { id: 'r3', name: 'АЗС Роснефть', address: 'Туапсе, ул. Сочинская, 43', services: ['☕ Кафе', '🅿️ Парковка', '🛒 Магазин', '🚻 Санузел'] },
-  { id: 'r4', name: 'АЗС Роснефть', address: 'Сочи, ш. Курортное, 98', services: ['☕ Кафе', '🅿️ Парковка', '📶 Wi-Fi', '🚻 Санузел'] },
+  { id: 'r1', city: 'Краснодар', address: 'ул. Кубанская Набережная, 47/1' },
+  { id: 'r2', city: 'Краснодар', address: 'ул. Лизы Чайкиной, 32' },
+  { id: 'r3', city: 'Краснодар', address: 'ул. Дзержинского, 197' },
+  { id: 'r4', city: 'Краснодар', address: 'ул. Уральская, 214/2' },
+  { id: 'r5', city: 'Краснодар', address: 'ул. Академика Лукьяненко, 6' },
+  { id: 'r6', city: 'Краснодар', address: 'ул. Котовского, 76/1' },
+  { id: 'r7', city: 'Краснодар', address: 'ул. Московская, 89' },
+  { id: 'r8', city: 'Краснодар', address: 'ул. Селезнёва, 197/5' },
+  { id: 'r9', city: 'Краснодар', address: 'ул. Вишняковой, 146' },
+  { id: 'r10', city: 'Краснодар', address: 'ул. Захарова, 5' },
+  { id: 'r11', city: 'Краснодар', address: 'ул. Дежнёва, 40/2' },
+  { id: 'r12', city: 'Краснодар', address: 'Ростовское шоссе, 26' },
+  { id: 'r13', city: 'Краснодар', address: 'Ростовское шоссе, 25' },
+  { id: 'r14', city: 'Краснодар', address: 'ул. Дзержинского, 108' },
+  { id: 'r15', city: 'Краснодар', address: 'ул. Дзержинского, 237' },
+  { id: 'r16', city: 'Краснодар', address: 'ул. Бородинская, 160' },
+  { id: 'r17', city: 'Краснодар', address: 'ул. Крупской, 159' },
+  { id: 'r18', city: 'Краснодар', address: 'Ейское шоссе, 1 (ст. Новотитаровская)' },
+  { id: 'r19', city: 'Краснодар', address: 'Трасса Краснодар — Кропоткин, 1 км, 1/2' },
+  { id: 'r20', city: 'Славянск-на-Кубани', address: 'ул. Красная, 141' },
+  { id: 'r21', city: 'Славянск-на-Кубани', address: 'Артиллерийский проезд, 1' },
+  { id: 'r22', city: 'Славянск-на-Кубани', address: 'Маевское шоссе, 25' },
+  { id: 'r23', city: 'Тамань', address: 'ул. Победы, 26' },
+  { id: 'r24', city: 'Новороссийск', address: 'Мысхакское шоссе, 53Б' },
+  { id: 'r25', city: 'Новороссийск', address: 'проспект Дзержинского, 188Б' },
+  { id: 'r26', city: 'Новороссийск', address: 'улица Ленина, 7А' },
+  { id: 'r27', city: 'Геленджик', address: 'ул. Туристическая, 2' },
+  { id: 'r28', city: 'Геленджик', address: 'проезд Строителей, 1Б' },
+  { id: 'r29', city: 'Кабардинка', address: 'Трасса М-4 (у съезда на с. Кабардинка)' },
+  { id: 'r30', city: 'Туапсе', address: 'ул. Бондаренко, 14А' },
+  { id: 'r31', city: 'Туапсе', address: 'ул. Говорова, 60' },
+  { id: 'r32', city: 'Туапсе', address: 'ул. Сочинская, 260а' },
 ];
 
 export default function MapPage() {
@@ -78,109 +106,16 @@ export default function MapPage() {
             </button>
           </div>
 
-          {/* SVG Map */}
+          {/* Real Map Image */}
           <div
             className="rounded-3xl overflow-hidden mb-8"
-            style={{ background: 'rgba(0,30,80,0.5)', border: '1px solid rgba(0,153,255,0.3)', backdropFilter: 'blur(10px)' }}
+            style={{ border: '2px solid rgba(0,153,255,0.3)', boxShadow: '0 8px 40px rgba(0,153,255,0.2)' }}
           >
-            <div className="relative w-full" style={{ paddingBottom: '50%' }}>
-              <div className="absolute inset-0">
-                <svg viewBox="0 0 900 450" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#001a3d" />
-                      <stop offset="100%" stopColor="#003B7A" />
-                    </linearGradient>
-                    <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#0099FF" />
-                      <stop offset="100%" stopColor="#00D4FF" />
-                    </linearGradient>
-                    <filter id="glow">
-                      <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                      <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                    <filter id="softGlow">
-                      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                      <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                  </defs>
-
-                  <rect width="900" height="450" fill="url(#bgGrad)" />
-
-                  {/* Sea */}
-                  <ellipse cx="450" cy="380" rx="520" ry="180" fill="rgba(0,153,255,0.08)" />
-                  <ellipse cx="450" cy="400" rx="500" ry="140" fill="rgba(0,212,255,0.05)" />
-
-                  {/* Land area */}
-                  <path d="M30,70 L180,50 L340,45 L500,65 L640,60 L780,75 L870,110 L850,180 L820,230 L780,270 L740,295 L680,315 L620,330 L560,345 L500,355 L440,345 L380,335 L320,355 L270,370 L210,360 L160,330 L110,295 L70,255 L40,200 Z"
-                    fill="rgba(0,120,60,0.15)" stroke="rgba(0,153,255,0.2)" strokeWidth="1" />
-
-                  {/* Sea label */}
-                  <text x="450" y="410" textAnchor="middle" fill="rgba(0,153,255,0.4)" fontSize="14" fontFamily="Russo One, sans-serif" letterSpacing="4">
-                    ЧЁРНОЕ МОРЕ
-                  </text>
-
-                  {/* Route line */}
-                  <polyline
-                    points="100,170 175,158 225,182 265,195 310,178 355,215 395,240 430,260 465,272 500,283 530,292 562,287 590,312 615,330 650,340"
-                    stroke="url(#routeGradient)"
-                    strokeWidth="3"
-                    strokeDasharray="10,5"
-                    fill="none"
-                    filter="url(#glow)"
-                    opacity="0.8"
-                  />
-
-                  {/* Location points */}
-                  {filtered.map((loc, i) => {
-                    const x = 80 + (i / 11) * 760;
-                    const y = 150 + Math.sin(i * 0.75) * 70 + (i > 7 ? 50 : 0);
-                    const isSelected = selected === loc.id;
-                    const dotColor = loc.type === 'cinema' ? '#A855F7' : loc.type === 'literary' ? '#F59E0B' : '#14B8A6';
-
-                    return (
-                      <g key={loc.id} onClick={() => setSelected(isSelected ? null : loc.id)} style={{ cursor: 'pointer' }}>
-                        {isSelected && (
-                          <circle cx={x} cy={y} r={28} fill={dotColor} opacity={0.2} />
-                        )}
-                        <circle cx={x} cy={y} r={isSelected ? 18 : 14} fill={dotColor} filter="url(#glow)" opacity={0.95} />
-                        <circle cx={x} cy={y} r={isSelected ? 10 : 7} fill="white" />
-                        <text x={x} y={y + (isSelected ? 33 : 28)} textAnchor="middle" fill="white" fontSize="10" fontFamily="Nunito, sans-serif" fontWeight="700">
-                          {i + 1}
-                        </text>
-                        {isSelected && (
-                          <>
-                            <rect x={x - 75} y={y - 56} width="150" height="32" rx="8" fill="rgba(0,30,80,0.95)" stroke={dotColor} strokeWidth="1" />
-                            <text x={x} y={y - 36} textAnchor="middle" fill="white" fontSize="8.5" fontFamily="Nunito, sans-serif" fontWeight="700">
-                              {loc.name.length > 22 ? loc.name.slice(0, 22) + '…' : loc.name}
-                            </text>
-                          </>
-                        )}
-                      </g>
-                    );
-                  })}
-
-                  {/* AZS stations */}
-                  {showStations && rosneftStations.map((s, i) => {
-                    const x = 130 + i * 200;
-                    const y = 390;
-                    return (
-                      <g key={s.id}>
-                        <circle cx={x} cy={y} r={11} fill="#CC0000" opacity={0.9} filter="url(#softGlow)" />
-                        <text x={x} y={y + 4} textAnchor="middle" fontSize="12">⛽</text>
-                      </g>
-                    );
-                  })}
-
-                  {/* Legend */}
-                  <rect x="15" y="400" width="260" height="44" rx="10" fill="rgba(0,20,60,0.92)" stroke="rgba(0,153,255,0.3)" strokeWidth="1" />
-                  <circle cx="35" cy="415" r="6" fill="#F59E0B" /><text x="47" y="419" fill="white" fontSize="10" fontFamily="Nunito, sans-serif" fontWeight="700">Литература</text>
-                  <circle cx="35" cy="432" r="6" fill="#A855F7" /><text x="47" y="436" fill="white" fontSize="10" fontFamily="Nunito, sans-serif" fontWeight="700">Кино</text>
-                  <circle cx="145" cy="415" r="6" fill="#14B8A6" /><text x="157" y="419" fill="white" fontSize="10" fontFamily="Nunito, sans-serif" fontWeight="700">Музей</text>
-                  <circle cx="145" cy="432" r="6" fill="#CC0000" /><text x="157" y="436" fill="white" fontSize="10" fontFamily="Nunito, sans-serif" fontWeight="700">АЗС Роснефть</text>
-                </svg>
-              </div>
-            </div>
+            <img
+              src="https://cdn.poehali.dev/projects/b8cf2513-eaab-4def-8611-9f1e17d9f569/bucket/2b89276d-2657-42a1-a488-8b1d4917f252.jpg"
+              alt="Карта маршрута «Море искусства» с АЗС Роснефть"
+              className="w-full h-auto block"
+            />
           </div>
 
           {/* Selected location */}
@@ -273,29 +208,59 @@ export default function MapPage() {
         {showStations && (
           <div style={{ background: 'white' }} className="py-12">
             <div className="container mx-auto px-4">
-              <h2 className="font-black text-2xl text-center mb-6" style={{ color: '#003B7A', fontFamily: 'Russo One, sans-serif' }}>
-                ⛽ АЗС Роснефть на маршруте
+              <h2 className="font-black text-2xl text-center mb-2" style={{ color: '#003B7A', fontFamily: 'Russo One, sans-serif' }}>
+                ⛽ АЗС «Роснефть» на маршруте
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {rosneftStations.map((s) => (
-                  <div key={s.id} className="game-card p-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">⛽</span>
-                      <div>
-                        <div className="font-black text-sm" style={{ color: '#003B7A' }}>АЗС Роснефть</div>
-                        <div className="text-xs font-semibold text-gray-400">{s.address}</div>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {s.services.map((svc, j) => (
-                        <span key={j} className="px-2 py-0.5 rounded-lg text-xs font-black text-white" style={{ background: '#CC0000' }}>{svc}</span>
-                      ))}
-                    </div>
-                    <div className="p-2 rounded-lg text-xs font-black text-center" style={{ background: '#E0F5FF', color: '#0099FF' }}>
-                      +50 баллов за фото
-                    </div>
+              <p className="text-center text-sm font-semibold text-gray-400 mb-8">
+                32 станции · Скидка 5% по QR-коду из Telegram-бота
+              </p>
+              {(() => {
+                const cities = Array.from(new Set(rosneftStations.map(s => s.city)));
+                return (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    {cities.map(city => {
+                      const cityStations = rosneftStations.filter(s => s.city === city);
+                      return (
+                        <div key={city} className="game-card p-4">
+                          <div
+                            className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-black text-white mb-3"
+                            style={{ background: '#CC0000' }}
+                          >
+                            📍 {city} ({cityStations.length})
+                          </div>
+                          <ul className="space-y-1.5">
+                            {cityStations.map(s => (
+                              <li key={s.id} className="flex items-start gap-2 text-xs font-semibold text-gray-600">
+                                <span className="text-red-400 flex-shrink-0">⛽</span>
+                                {s.address}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
+                );
+              })()}
+              <div
+                className="mt-6 p-4 rounded-2xl text-center max-w-lg mx-auto"
+                style={{ background: '#E0F5FF', border: '2px solid rgba(0,153,255,0.2)' }}
+              >
+                <div className="font-black text-sm mb-1" style={{ color: '#003B7A' }}>
+                  Как получить скидку на топливо
+                </div>
+                <p className="text-xs font-semibold text-gray-500 mb-3">
+                  Откройте Telegram-бот → нажмите «Получить QR-код» → покажите кассиру на АЗС
+                </p>
+                <a
+                  href="https://t.me/more_iskusstva_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-xl font-black text-sm text-white"
+                  style={{ background: 'linear-gradient(135deg, #29B5E8, #00D4FF)' }}
+                >
+                  ✈️ Открыть Telegram-бот
+                </a>
               </div>
             </div>
           </div>

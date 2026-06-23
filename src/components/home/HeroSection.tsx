@@ -89,21 +89,20 @@ export default function HeroSection() {
           className="text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold animate-fade-in opacity-0"
           style={{ color: 'rgba(200,235,255,0.9)', animationDelay: '0.6s', animationFillMode: 'forwards' }}
         >
-          Путешествие по следам кино и литературы<br />
-          <span style={{ color: '#7DDFFF' }}>Черноморского побережья</span>
+          Откройте «Море искусства» — маршрут, где каждая<br />
+          <span style={{ color: '#7DDFFF' }}>остановка становится новым открытием</span>
         </p>
 
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in opacity-0"
           style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}
         >
-          <Link to="/map" className="btn-game text-lg">
-            <Icon name="Map" size={20} />
-            🚀 Начать путешествие
+          <Link to="/register" className="btn-game text-lg">
+            🚀 Зарегистрироваться
           </Link>
-          <Link to="/profile" className="btn-outline-game text-lg">
-            <Icon name="User" size={20} />
-            Личный кабинет
+          <Link to="/map" className="btn-outline-game text-lg">
+            <Icon name="Map" size={20} />
+            Смотреть маршрут
           </Link>
         </div>
 

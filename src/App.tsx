@@ -16,6 +16,7 @@ import FamilyPage from "./pages/FamilyPage";
 import FAQPage from "./pages/FAQPage";
 import PartnersPage from "./pages/PartnersPage";
 import ContactsPage from "./pages/ContactsPage";
+import RegisterPage from "./pages/RegisterPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -113,12 +113,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* CTA + burger */}
             <div className="flex items-center gap-3">
               <Link
+                to="/register"
+                className="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-black text-white transition-all duration-200 hover:scale-105"
+                style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)' }}
+              >
+                🚀 Регистрация
+              </Link>
+              <Link
                 to="/profile"
                 className="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-black text-white transition-all duration-200 hover:scale-105"
                 style={{ background: 'linear-gradient(135deg, #0099FF, #00D4FF)', boxShadow: '0 4px 16px rgba(0,153,255,0.4)' }}
               >
                 <Icon name="User" size={16} />
-                Мой профиль
+                Войти
               </Link>
               <button
                 className="xl:hidden p-2.5 rounded-xl text-white hover:bg-white/15 transition-colors"
@@ -191,19 +198,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-6">
-                Автомобильный маршрут по Краснодарскому краю для семей, школьников и всех, кто любит культуру и приключения. 12 уникальных точек, квесты и призы!
+                Откройте «Море искусства» — маршрут, где каждая остановка становится новым открытием. 12 точек, захватывающие истории, любимые фильмы, великие книги, баллы и призы для всей семьи.
               </p>
               <div className="flex gap-3">
-                {['✈️', '💬', '📘'].map((icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all hover:scale-110"
-                    style={{ background: 'rgba(0,153,255,0.2)', border: '1px solid rgba(0,153,255,0.3)' }}
-                  >
-                    {icon}
-                  </a>
-                ))}
+                <a
+                  href="https://t.me/more_iskusstva_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all hover:scale-110"
+                  style={{ background: 'rgba(0,153,255,0.2)', border: '1px solid rgba(0,153,255,0.3)' }}
+                  title="Telegram-бот"
+                >
+                  ✈️
+                </a>
+                <a
+                  href="https://vk.ru/club239535650"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all hover:scale-110"
+                  style={{ background: 'rgba(0,153,255,0.2)', border: '1px solid rgba(0,153,255,0.3)' }}
+                  title="ВКонтакте"
+                >
+                  💬
+                </a>
               </div>
             </div>
 
@@ -240,8 +257,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
 
               <div className="mt-6 p-4 rounded-2xl" style={{ background: 'rgba(0,153,255,0.15)', border: '1px solid rgba(0,153,255,0.3)' }}>
-                <div className="text-xs font-black text-white/80 mb-1">🤖 Телеграм-бот</div>
-                <a href="#" className="text-sm font-bold" style={{ color: '#00D4FF' }}>@more_iskusstva_bot</a>
+                <div className="text-xs font-black text-white/80 mb-1">🤖 Telegram-бот</div>
+                <a href="https://t.me/more_iskusstva_bot" target="_blank" rel="noopener noreferrer" className="text-sm font-bold" style={{ color: '#00D4FF' }}>@more_iskusstva_bot</a>
               </div>
             </div>
           </div>
@@ -250,7 +267,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             className="mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
             style={{ borderTop: '1px solid rgba(0,153,255,0.2)' }}
           >
-            <div className="text-white/40 text-sm font-semibold">© 2024 Море искусства. Все права защищены.</div>
+            <div className="text-white/40 text-sm font-semibold">© Июнь 2026 Море искусства. Все права защищены.</div>
             <div className="flex items-center gap-2">
               <span className="text-white/40 text-xs font-semibold">Партнёр маршрута:</span>
               <span className="px-3 py-1 rounded-lg text-xs font-black text-white" style={{ background: '#c00' }}>⛽ Роснефть</span>

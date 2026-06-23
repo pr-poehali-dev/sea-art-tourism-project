@@ -1,22 +1,27 @@
 import { useState } from 'react';
 import Layout from '@/components/Layout';
-import { locations } from '@/data/locations';
 
-const categories = ['Все', 'Локации', 'Участники', 'Природа', 'Кино', 'Литература'];
+const categories = ['Все', 'Участники', 'Природа', 'Кино', 'Литература'];
 
 const galleryItems = [
-  ...locations.map((loc, i) => ({
-    id: i + 1,
-    image: loc.image,
-    title: loc.name,
-    city: loc.city,
-    category: loc.type === 'cinema' ? 'Кино' : loc.type === 'literary' ? 'Литература' : 'Локации',
-    likes: Math.floor(Math.random() * 200) + 50,
-  })),
-  { id: 20, image: locations[0].image, title: 'Семья у Дома Лермонтова', city: 'Тамань', category: 'Участники', likes: 87 },
-  { id: 21, image: locations[1].image, title: 'Рассвет над Черноморьем', city: 'Джанхот', category: 'Природа', likes: 143 },
-  { id: 22, image: locations[2].image, title: 'Скала Киселёва — фото', city: 'Туапсе', category: 'Кино', likes: 256 },
-  { id: 23, image: locations[3].image, title: 'Дети у Дендрария', city: 'Сочи', category: 'Участники', likes: 112 },
+  { id: 1, image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80', title: 'Горные вершины Красной Поляны', city: 'Красная Поляна', category: 'Природа', likes: 198 },
+  { id: 2, image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', title: 'Черноморское побережье', city: 'Туапсе', category: 'Природа', likes: 256 },
+  { id: 3, image: 'https://images.unsplash.com/photo-1588392382834-a891154bca4d?w=800&q=80', title: 'Сочинский Дендрарий', city: 'Сочи', category: 'Кино', likes: 312 },
+  { id: 4, image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', title: 'Закат над морем', city: 'Джанхот', category: 'Природа', likes: 143 },
+  { id: 5, image: 'https://images.unsplash.com/photo-1611095970423-3f76e5f12ae5?w=800&q=80', title: 'Олимпийский парк вечером', city: 'Сириус', category: 'Кино', likes: 287 },
+  { id: 6, image: 'https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&q=80', title: 'Горнолыжный курорт Роза Хутор', city: 'Красная Поляна', category: 'Кино', likes: 174 },
+  { id: 7, image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80', title: 'Вид на море с холма', city: 'Тамань', category: 'Литература', likes: 221 },
+  { id: 8, image: 'https://images.unsplash.com/photo-1574169208507-84376144848b?w=800&q=80', title: 'Старинный особняк', city: 'Краснодар', category: 'Литература', likes: 97 },
+  { id: 9, image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', title: 'Сказочный лес Кабардинки', city: 'Кабардинка', category: 'Кино', likes: 189 },
+  { id: 10, image: 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80', title: 'Музейная экспозиция', city: 'Туапсе', category: 'Литература', likes: 68 },
+  { id: 11, image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80', title: 'Казачий зал музея', city: 'Славянск-на-Кубани', category: 'Литература', likes: 112 },
+  { id: 12, image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=800&q=80', title: 'Библиотечный зал', city: 'Краснодар', category: 'Литература', likes: 84 },
+  { id: 13, image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&q=80', title: 'Кипарисовая аллея', city: 'Джанхот', category: 'Природа', likes: 231 },
+  { id: 14, image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80', title: 'Семья у берега моря', city: 'Новороссийск', category: 'Участники', likes: 345 },
+  { id: 15, image: 'https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=800&q=80', title: 'Путешественники в горах', city: 'Красная Поляна', category: 'Участники', likes: 276 },
+  { id: 16, image: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80', title: 'Счастливая семья в пути', city: 'Краснодар', category: 'Участники', likes: 198 },
+  { id: 17, image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=800&q=80', title: 'Дорога вдоль моря', city: 'Туапсе', category: 'Природа', likes: 267 },
+  { id: 18, image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?w=800&q=80', title: 'Дети на природе', city: 'Сочи', category: 'Участники', likes: 312 },
 ];
 
 export default function GalleryPage() {
